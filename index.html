@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Creative Pro Workspace</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+      
+      body {
+        font-family: 'Plus Jakarta Sans', 'Segoe UI', Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        -webkit-font-smoothing: antialiased;
+        background-color: #000;
+      }
+
+      .bg-grid-dark {
+        background-image: radial-gradient(circle, rgba(255, 255, 255, 0.28) 1px, transparent 1px);
+        background-size: 20px 20px;
+      }
+      .bg-grid-light {
+        background-image: radial-gradient(circle, rgba(0, 0, 0, 0.4) 1px, transparent 1px);
+        background-size: 20px 20px;
+      }
+      
+      @keyframes modalIn {
+        0% { opacity: 0; transform: translate(-50%, -45%) scale(0.95); }
+        100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+      }
+      @keyframes modalOut {
+        0% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+        100% { opacity: 0; transform: translate(-50%, -55%) scale(0.95) blur(5px); }
+      }
+      @keyframes backdropIn {
+        from { opacity: 0; backdrop-filter: blur(0px); }
+        to { opacity: 1; backdrop-filter: blur(12px); }
+      }
+
+      .animate-dialog-show { animation: modalIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+      .animate-dialog-hide { animation: modalOut 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+      .animate-fadeIn { animation: backdropIn 0.4s ease forwards; }
+      .animate-fadeOut { animation: backdropIn 0.3s ease reverse forwards; }
+
+      #workspace {
+        will-change: background-position;
+        backface-visibility: hidden;
+      }
+
+      /* Hide scrollbar for Chrome, Safari and Opera */
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      /* Hide scrollbar for IE, Edge and Firefox */
+      .no-scrollbar {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+      }
+
+      @media (max-width: 380px) {
+        .xs\:flex { display: flex !important; }
+        .hidden.xs\:flex { display: none !important; }
+      }
+
+      ::-webkit-scrollbar { width: 4px; }
+      ::-webkit-scrollbar-track { background: transparent; }
+      ::-webkit-scrollbar-thumb { background: rgba(107, 70, 255, 0.3); border-radius: 10px; }
+    </style>
+    <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom": "https://esm.sh/react-dom@^19.2.3",
+    "react-dom/client": "https://esm.sh/react-dom@^19.2.3/client",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/"
+  }
+}
+</script>
+  <link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
